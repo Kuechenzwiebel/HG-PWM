@@ -5,5 +5,5 @@ This is the testing branch. So nothing is guaranteed to work.
 
 # Current state of development
 
-PWM works precise on Raspberry Pi 4B,
-plan to test on 3B+ and 2B.
+PWM works precise on Raspberry Pi 4B and 3B+,
+plan to test on 2B.
