@@ -14,11 +14,10 @@ PWM::~PWM() {
 }
 
 void PWM::pulse(float freq, float time, float duty) {
-//  printf("%Lf\n", 0.0025 * pow((long double) (e), (long double)(2.1914f * freq / 100.0f)));
   chrono::steady_clock::time_point endPoint = chrono::steady_clock::now() + chrono::milliseconds(int(round(time)));
 
-  unsigned int delayHigh = round((1000000.0f / freq) * duty) - 80;
-  unsigned int delayLow = round((1000000.0f / freq) * (1.0f - duty)) - 80;
+  unsigned int delayHigh = round((1000000.0f / freq) * duty) - 76;
+  unsigned int delayLow = round((1000000.0f / freq) * (1.0f - duty)) - 76;
 
   while(endPoint > chrono::steady_clock::now()) {
     digitalWrite(pin, HIGH);
@@ -29,9 +28,8 @@ void PWM::pulse(float freq, float time, float duty) {
 }
 
 void PWM::pulses(float freq, unsigned long pulses, float duty) {
-
-  unsigned int delayHigh = round((1000000.0f / freq) * duty) - 80;
-  unsigned int delayLow = round((1000000.0f / freq) * (1.0f - duty)) - 80;
+  unsigned int delayHigh = round((1000000.0f / freq) * duty) - 76;
+  unsigned int delayLow = round((1000000.0f / freq) * (1.0f - duty)) - 76;
 
   for(unsigned long i = 0; i < pulses; i++) {
     digitalWrite(pin, HIGH);
